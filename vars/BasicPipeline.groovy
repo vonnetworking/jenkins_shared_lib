@@ -1,7 +1,7 @@
 def call(body) {
 
   stage ("I'm a firestarter") {
-    sh "echo 'I'm a firestarter'"
+    sh "echo 'Im a firestarter'"
   }
   stage ("Tuwisted firestarter") {
     sh "echo 'Tuwisted firestarter'"

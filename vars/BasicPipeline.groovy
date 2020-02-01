@@ -8,5 +8,5 @@ def call(body) {
   }
   stage ("The Prodigy") {
     sh "echo 'Wuum wowowowowowow'"
-s  }
+  }
 }

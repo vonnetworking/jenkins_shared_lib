@@ -1,12 +1,12 @@
 def call(body) {
 
-  stage ("Hello Hello Hello") {
-    sh "echo 'Hello Hello Hello'"
+  stage ("I'm a firestarter") {
+    sh "echo 'I'm a firestarter'"
   }
-  stage ("Is There Anybody In There?") {
-    sh "echo 'Is There Anybody In There?'"
+  stage ("Tuwisted firestarter") {
+    sh "echo 'Tuwisted firestarter'"
   }
-  stage ("Welcome to the machine!") {
-    sh "echo 'PEW PEW PEW!'"
-  }
+  stage ("The Prodigy") {
+    sh "echo 'Wuum wowowowowowow'"
+s  }
 }

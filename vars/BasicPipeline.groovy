@@ -1,4 +1,4 @@
-def call() {
+def call(body) {
 
   stage ("Hello Hello Hello") {
     sh "echo 'Hello Hello Hello'"

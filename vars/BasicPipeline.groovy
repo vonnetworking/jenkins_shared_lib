@@ -17,6 +17,7 @@ def call(body) {
   }
   stage ("Docker Dev Push") {
     def app_version = readFile file:"VERSION"
-    sh "LOCAL_IMAGE_ID=`/usr/local/bin/docker images | grep springboot-test | awk '{print \$3}'` && /usr/local/bin/docker tag \$LOCAL_IMAGE_ID vonnetworking/springboot-test:app-dev-$app_version && /usr/local/bin/docker push vonnetworking/springboot-test"
+    sh "LOCAL_IMAGE_ID=`/usr/local/bin/docker images | grep springboot-test | awk '{print \$3}'` && /usr/local/bin/docker tag \$LOCAL_IMAGE_ID vonnetworking/springboot-test:app-dev-$app_version"
+    sh "/usr/local/bin/docker push vonnetworking/springboot-test"
   }
 }

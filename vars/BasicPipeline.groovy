@@ -11,7 +11,7 @@ def call(body) {
     def app_version = readFile file:"VERSION"
     sh "echo 'App Version: $app_version'"
     sh "env"
-    def build_command = "/usr/local/bin/docker image build -t springboot-test:" + app_version + " `pwd`"
+    def build_command = "/usr/local/bin/docker image build -t springboot-test:$app_version \$WORKSPACE"
     echo "Build Command: $build_command"
     sh "$build_command"
   }

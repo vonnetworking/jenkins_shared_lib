@@ -18,6 +18,12 @@ def call(body) {
   stage ("Docker Dev Push") {
     def app_version = readFile file:"VERSION"
     sh "LOCAL_IMAGE_ID=`/usr/local/bin/docker images | grep springboot-test | awk '{print \$3}'` && /usr/local/bin/docker tag \$LOCAL_IMAGE_ID vonnetworking/springboot-test:app-dev-$app_version"
+
+    withCredentials([usernamePassword(credentialsId: 'av_dockerhub_id', usernameVariable: 'HUB_USER', passwordVariable: 'HUB_PASS')]) {
+      sh "/usr/local/bin/docker login -u \$HUB_USER -p \$HUB_PASS"
+    }
+
     sh "/usr/local/bin/docker push vonnetworking/springboot-test"
   }
+
 }

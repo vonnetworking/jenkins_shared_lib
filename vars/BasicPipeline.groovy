@@ -11,7 +11,7 @@ def call(body) {
     def app_version = readFile file:"VERSION"
     sh "echo 'App Version: $app_version'"
     sh "env"
-    sh "/usr/local/bin/docker image build -t springboot-test:${app_version} `pwd`"
+    sh "/usr/local/bin/docker image build -t springboot-test:" + app_version + " `pwd`"
   }
   stage ("Docker Dev Push") {
     def app_version = readFile file:"VERSION"

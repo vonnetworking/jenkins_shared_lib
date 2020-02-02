@@ -8,7 +8,7 @@ def call(body) {
   }
   stage ("Docker Build") {
     def configMap = readYaml file:"pipeline_config.yaml"
-    def app_version = readFile file:"VERSION"
+    def app_version = readFile("VERSION").trim()
     sh "echo 'App Version: $app_version'"
     sh "env"
     def build_command = "/usr/local/bin/docker image build -t springboot-test:$app_version \$WORKSPACE"

@@ -22,12 +22,6 @@ def call(body) {
     withCredentials([usernamePassword(credentialsId: 'av_dockerhub_id', usernameVariable: 'HUB_USER', passwordVariable: 'HUB_PASS')]) {
       sh "export PATH=$PATH:/usr/local/bin && /usr/local/bin/docker login -u \$HUB_USER -p \$HUB_PASS && /usr/local/bin/docker push vonnetworking/springboot-test"
     }
-  }
-  post {
-    always {
-      echo 'One way or another, I have finished'
-      sh "docker rmi --force `docker images | grep springboot-test | head -1 | awk '{ print \$3 }'`"
-      deleteDir() /* clean up our workspace */
-    }
+    sh "docker rmi --force `docker images | grep springboot-test | head -1 | awk '{ print \$3 }'`"
   }
 }

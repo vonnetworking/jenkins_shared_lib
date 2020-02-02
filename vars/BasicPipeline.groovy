@@ -26,7 +26,8 @@ def call(body) {
   post {
     always {
       echo 'One way or another, I have finished'
-      sh "docker rmi --force `docker images | grep springboot-test | head -1 | awk '{print \$3}'`"
+      sh "docker rmi --force `docker images | grep springboot-test | head -1 | awk '{ print \$3 }'`"
       deleteDir() /* clean up our workspace */
     }
+  }
 }

@@ -25,6 +25,7 @@ def call(body) {
     sh "/usr/local/bin/docker rmi --force `/usr/local/bin/docker images | grep springboot-test | head -1 | awk '{ print \$3 }'`"
   }
   stage ("Docker Deploy To Dev") {
-    sh "/usr/local/bin/kubectl apply -f deployment.yaml"
+    // sh "/usr/local/bin/kubectl apply -f deployment.yaml"
+    sh "cd cdk_ecs && cdk deploy"
   }
 }
